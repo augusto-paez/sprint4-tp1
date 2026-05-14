@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Superhéroe</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        form { max-width: 500px; }
+        label { display: block; margin-top: 10px; font-weight: bold; }
+        input { width: 100%; padding: 8px; margin-top: 4px; box-sizing: border-box; }
+        .btn { padding: 10px 16px; border: none; cursor: pointer; border-radius: 4px; margin-top: 16px; }
+        .btn-save { background-color: #4CAF50; color: white; }
+        .btn-cancel { background-color: #aaa; color: white; text-decoration: none; padding: 10px 16px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h1>Editar Superhéroe</h1>
+    <form action="/heroes/<%= superheroe._id %>/editar" method="POST">
+        <label>Nombre Superhéroe *</label>
+        <input type="text" name="nombreSuperHeroe" value="<%= superheroe.nombreSuperHeroe %>" minlength="3" maxlength="60" required>
+
+        <label>Nombre Real *</label>
+        <input type="text" name="nombreReal" value="<%= superheroe.nombreReal %>" minlength="3" maxlength="60" required>
+
+        <label>Edad *</label>
+        <input type="number" name="edad" value="<%= superheroe.edad %>" min="0" required>
+
+        <label>Planeta de Origen</label>
+        <input type="text" name="planetaOrigen" value="<%= superheroe.planetaOrigen %>">
+
+        <label>Debilidad</label>
+        <input type="text" name="debilidad" value="<%= superheroe.debilidad %>">
+
+        <label>Poderes * (separados por coma)</label>
+        <input type="text" name="poderes" value="<%= superheroe.poderes.join(', ') %>" required>
+
+        <label>Aliados (separados por coma)</label>
+        <input type="text" name="aliados" value="<%= superheroe.aliados.join(', ') %>">
+
+        <label>Enemigos (separados por coma)</label>
+        <input type="text" name="enemigos" value="<%= superheroe.enemigos.join(', ') %>">
+
+        <label>Creador</label>
+        <input type="text" name="creador" value="<%= superheroe.creador %>">
+
+        <br>
+        <button type="submit" class="btn btn-save">Guardar</button>
+        <a href="/" class="btn btn-cancel">Cancelar</a>
+    </form>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Superhéroes</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+        th { background-color: #333; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        .btn { padding: 6px 12px; border: none; cursor: pointer; border-radius: 4px; }
+        .btn-edit { background-color: #4CAF50; color: white; text-decoration: none; }
+        .btn-delete { background-color: #f44336; color: white; }
+        .btn-add { background-color: #008CBA; color: white; text-decoration: none; padding: 10px 16px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h1>Dashboard Superhéroes</h1>
+    <a href="/heroes/agregar" class="btn btn-add">+ Agregar Superhéroe</a>
+    <br><br>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Nombre Real</th>
+                <th>Edad</th>
+                <th>Planeta</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% superheroes.forEach(superheroe => { %>
+            <tr>
+                <td><%= superheroe.nombreSuperHeroe %></td>
+                <td><%= superheroe.nombreReal %></td>
+                <td><%= superheroe.edad %></td>
+                <td><%= superheroe.planetaOrigen %></td>
+                <td>
+                    <a href="/heroes/<%= superheroe._id %>/editar" class="btn btn-edit">Editar</a>
+                    <button class="btn btn-delete" onclick="eliminar('<%= superheroe._id %>')">Eliminar</button>
+                </td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+
+    <script>
+        function eliminar(id) {
+            if (confirm('¿Estás seguro de que deseas eliminar este superhéroe?')) {
+                fetch(`/heroes/${id}`, { method: 'DELETE' })
+                    .then(() => window.location.reload());
+            }
+        }
+    </script>
+</body>
+</html>
