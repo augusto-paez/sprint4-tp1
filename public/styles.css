@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* NAVBAR */
+.navbar {
+    background-color: #1a1a2e;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand a {
+    color: #e94560;
+    text-decoration: none;
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.95em;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.navbar-links a:hover {
+    background-color: #e94560;
+}
+
+/* CONTENIDO */
+.contenido {
+    padding: 30px;
+    flex: 1;
+}
+
+/* FOOTER */
+.footer {
+    background-color: #1a1a2e;
+    color: #aaa;
+    text-align: center;
+    padding: 15px;
+    font-size: 0.85em;
+}
+
+.footer a {
+    color: #e94560;
+    text-decoration: none;
+}
+
+/* TABLA */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+th, td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #1a1a2e;
+    color: white;
+}
+
+tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* BOTONES */
+.btn {
+    padding: 7px 14px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.9em;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-add { background-color: #e94560; color: white; }
+.btn-edit { background-color: #4CAF50; color: white; }
+.btn-delete { background-color: #f44336; color: white; }
+.btn-save { background-color: #4CAF50; color: white; }
+.btn-cancel { background-color: #aaa; color: white; }
+
+/* FORMULARIO */
+form {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    max-width: 550px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}

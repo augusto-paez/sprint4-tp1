@@ -1,4 +1,5 @@
 import express from 'express';
+import expressLayouts from 'express-ejs-layouts';
 import { connectDB } from './config/dbConfig.mjs';
 import superHeroRoutes from './routes/superHeroRoutes.mjs';
 import { fileURLToPath } from 'url';
@@ -16,8 +17,14 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Configurar EJS + layouts
 app.set('view engine', 'ejs');
 app.set('views', join(__dirname, 'views'));
+app.use(expressLayouts);
+app.set('layout', 'layout');
+
+// Archivos estáticos
+app.use(express.static(join(__dirname, '../public')));
 
 connectDB();
 
