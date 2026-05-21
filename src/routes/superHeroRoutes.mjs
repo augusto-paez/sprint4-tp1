@@ -26,7 +26,7 @@ const parsearArrays = (req, res, next) => {
 };
 
 // Rutas EJS (dashboard)
-router.get('/', obtenerTodosLosSuperheroeController);
+router.get('/', (req, res) => res.render('index'));
 router.get('/heroes/agregar', mostrarFormularioAgregarController);
 router.post('/heroes/agregar', parsearArrays, superheroeValidationRules(), handleValidationErrors, agregarSuperheroeController);
 router.get('/heroes/:id/editar', mostrarFormularioEditarController);
