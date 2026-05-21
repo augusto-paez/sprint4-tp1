@@ -110,7 +110,7 @@ export async function agregarSuperheroeController(req, res) {
         const data = req.body;
 
         await crearSuperheroe(data);
-        res.redirect('/');
+        res.redirect('/heroes');
     } catch (error) {
         res.status(500).send({ mensaje: 'Error al agregar el superhéroe', error: error.message });
     }
@@ -135,7 +135,7 @@ export async function editarSuperheroeController(req, res) {
         const data = req.body;
 
         await actualizarSuperheroe(id, data);
-        res.redirect('/');
+        res.redirect('/heroes');
     } catch (error) {
         res.status(500).send({ mensaje: 'Error al editar el superhéroe', error: error.message });
     }
